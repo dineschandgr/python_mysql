@@ -16,7 +16,6 @@ def create_user():
     print("doc json ", doc_json)
     return doc_json
 
-
 @app.route('/users', methods = ['GET'])
 def get_all_users():
     users_list = service.get_users()
@@ -30,7 +29,6 @@ def get_user(user_id):
 @app.route('/')
 def hello():
     return 'Your Flask Server Running'
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = '5001')

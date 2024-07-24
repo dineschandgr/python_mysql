@@ -1,4 +1,6 @@
 # Select query
+import pymongo
+
 from dbconfig import dbconfig
 from User import User
 import json
@@ -65,6 +67,14 @@ class user_service:
         print(conn.insert_id())
         conn.commit()
 
+    def insert_mongo(self, student):
+         connection_url = "mongodb+srv://livewirecbehopecollege:test1234@livewire.3r9b77u.mongodb.net"
+         client = pymongo.MongoClient(connection_url)
+
+         db = client['Python-Mongo']
+
+         collection = db['Python-Mongo-Collection']
+         collection.insert_one(student)
 
 # user_service = user_service()
 # user_service.get_users()
