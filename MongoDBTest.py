@@ -5,9 +5,11 @@ connection_url = "mongodb+srv://livewirecbehopecollege:test1234@livewire.3r9b77u
 client = pymongo.MongoClient(connection_url)
 print(client.list_database_names())
 
-workshop_db=client['fullstack_workshop']
+workshop_db = client['Test']
 
-collection = workshop_db['records']
+collection = workshop_db['test-collection']
+#collection.create_index('Roll No', unique = True)
+
 print(workshop_db.list_collection_names())
 
 documents=[{"Name":"Roshan","Roll No":159,"Branch":"CSE"},{"Name":"Rahim","Roll No":155,"Branch":"CSE"},
