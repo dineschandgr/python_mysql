@@ -1,6 +1,31 @@
 from flask import json
 
 
+
+countries = [
+        {
+            "name": "Afghanistan",
+            "region": "Asia"
+        },
+        {
+            "name": "Albania",
+            "region": "Europe"
+        },
+        {
+            "name": "Algeria",
+            "region": "Africa"
+        },
+        {
+            "name": "India",
+            "region": "Asia"
+        }
+    ]
+
+print(type(countries[0]))
+
+filtered_list = [c for c in countries if c['region'] == 'Asia']
+print(filtered_list)
+
 class User:
     id = 0
     email = ''
