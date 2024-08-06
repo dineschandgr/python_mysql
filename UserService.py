@@ -10,7 +10,7 @@ class user_service:
     def get_users(self):
         conn = dbconfig.open_connection()
         cur = conn.cursor()
-        cur.execute("select * from user")
+        cur.execute("select * from users")
         output = cur.fetchall()
 
         users_list = []
@@ -50,7 +50,7 @@ class user_service:
         conn = dbconfig.open_connection()
         cur = conn.cursor()
         cur.execute("""
-                insert into user(id, email, password, user_name ) values ( %s, %s, %s, %s)
+                insert into users(id, email, password, username ) values ( %s, %s, %s, %s)
                 """,
                     (user.id, user.email, user.password, user.user_name))
         print(conn.insert_id())
@@ -75,6 +75,13 @@ class user_service:
 
          collection = db['Python-Mongo-Collection']
          collection.insert_one(student)
+
+user_service = user_service()
+user_list_json = user_service.get_users()
+print("user list ",user_list_json)
+
+user = User(1,"a.acom","password","admin","adimin")
+user_service.create_user(user)
 
 # user_service = user_service()
 # user_service.get_users()
