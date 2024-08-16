@@ -12,9 +12,9 @@ def create_user():
     data = request.get_json()
     user = User(data['id'], data['email'], data['password'], data['role'], data['user_name'])
     service.create_user(user)
-    doc_json = jsonify(user)
-    print("doc json ", doc_json)
-    return doc_json
+    # doc_json = jsonify(user)
+    # print("doc json ", doc_json)
+    return data
 
 @app.route('/users', methods = ['GET'])
 def get_all_users():
@@ -69,7 +69,7 @@ def hello():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5005)
-
+    service = user_service()
 
 
 @staticmethod

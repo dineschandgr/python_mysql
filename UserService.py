@@ -76,12 +76,12 @@ class user_service:
          collection = db['Python-Mongo-Collection']
          collection.insert_one(student)
 
-user_service = user_service()
-user_list_json = user_service.get_users()
-print("user list ",user_list_json)
-
-user = User(1,"a.acom","password","admin","adimin")
-user_service.create_user(user)
+# user_service = user_service()
+# user_list_json = user_service.get_users()
+# print("user list ",user_list_json)
+#
+# user = User(1,"a.acom","password","admin","admin")
+# user_service.create_user(user)
 
 # user_service = user_service()
 # user_service.get_users()
