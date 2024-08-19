@@ -1,0 +1,10 @@
+docker build -t python-flask-image .
+
+docker run --name python-flask-container -d -p 5005:5005 python-flask-image
+
+Docker images
+docker ps
+Docker pull nginx
+docker run --name nginx -d -p 8080:80 nginx
+Docker stop nginx
+docker container start nginx

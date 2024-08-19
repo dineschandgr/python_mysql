@@ -2,7 +2,7 @@ import pymongo
 
 
 connection_url = "mongodb+srv://livewirecbehopecollege:test1234@livewire.3r9b77u.mongodb.net"
-client = pymongo.MongoClient(connection_url)
+client = pymongo.MongoClient("mongodb://localhost:55000/", username='root',password='password')
 print(client.list_database_names())
 
 workshop_db = client['Test']
