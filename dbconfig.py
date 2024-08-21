@@ -6,7 +6,7 @@ class dbconfig:
     @staticmethod
     def open_connection():
         conn = pymysql.connect(
-            host='localhost',
+            host='mysqldb',
             user='root',
             password="password",
             db='user_schema',

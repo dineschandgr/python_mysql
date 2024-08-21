@@ -1,0 +1,34 @@
+services:
+  flask_container:
+    container_name: flask-container
+    image: python-flask-image
+    build: .
+    restart: always
+    ports:
+      - 5005:5005
+    networks:
+      - ms-network
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: "mysql:8.2"
+    restart: always
+    ports:
+      - 3306:3306
+    networks:
+      - ms-network
+    environment:
+      MYSQL_DATABASE: user_schema
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - mysqldata:/var/lib/mysql
+
+volumes:
+  mysqldata:
+
+networks:
+  ms-network:
+    name: ms-network
+    driver: bridge
