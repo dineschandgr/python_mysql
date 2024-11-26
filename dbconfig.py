@@ -1,6 +1,5 @@
 import pymysql
 
-
 class dbconfig:
 
     @staticmethod
