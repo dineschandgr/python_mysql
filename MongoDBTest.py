@@ -2,18 +2,18 @@ import pymongo
 
 
 connection_url = "mongodb+srv://livewirecbehopecollege:test1234@livewire.3r9b77u.mongodb.net"
-client = pymongo.MongoClient("mongodb://localhost:55000/", username='root',password='password')
+client = pymongo.MongoClient(connection_url)
 print(client.list_database_names())
 
 workshop_db = client['Test']
 
 collection = workshop_db['test-collection']
-#collection.create_index('Roll No', unique = True)
+collection.create_index('Roll No', unique = True)
 
 print(workshop_db.list_collection_names())
 
-documents=[{"Name":"Roshan","Roll No":159,"Branch":"CSE"},{"Name":"Rahim","Roll No":155,"Branch":"CSE"},
-           {"Name":"Ronak","Roll No":156,"Branch":"CSE"}]
+documents=[{"Name":"Roshan","Roll No":160,"Branch":"CSE"},{"Name":"Rahim","Roll No":161,"Branch":"CSE"},
+           {"Name":"Ronak","Roll No":162,"Branch":"CSE"}]
 collection.insert_many(documents)
 
 query={"Name":"Roshan"}
@@ -33,3 +33,10 @@ print(collection.find_one(query))
 
 query={"Roll No":153}
 collection.delete_one(query)
+
+query={"Name":"Roshan"}
+collection.delete_many(query)
+
+
+query={"Name":"Roshan"}
+print(collection.find_one(query))
